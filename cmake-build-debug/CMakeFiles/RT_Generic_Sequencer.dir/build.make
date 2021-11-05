@@ -81,17 +81,69 @@ CMakeFiles/RT_Generic_Sequencer.dir/main.c.o.provides: CMakeFiles/RT_Generic_Seq
 CMakeFiles/RT_Generic_Sequencer.dir/main.c.o.provides.build: CMakeFiles/RT_Generic_Sequencer.dir/main.c.o
 
 
+CMakeFiles/RT_Generic_Sequencer.dir/threads.c.o: CMakeFiles/RT_Generic_Sequencer.dir/flags.make
+CMakeFiles/RT_Generic_Sequencer.dir/threads.c.o: ../threads.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/fedi/real_time_embedded_systems_course/week_1/RT_Generic_Sequencers /cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/RT_Generic_Sequencer.dir/threads.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/RT_Generic_Sequencer.dir/threads.c.o   -c "/home/fedi/real_time_embedded_systems_course/week_1/RT_Generic_Sequencers /threads.c"
+
+CMakeFiles/RT_Generic_Sequencer.dir/threads.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/RT_Generic_Sequencer.dir/threads.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/fedi/real_time_embedded_systems_course/week_1/RT_Generic_Sequencers /threads.c" > CMakeFiles/RT_Generic_Sequencer.dir/threads.c.i
+
+CMakeFiles/RT_Generic_Sequencer.dir/threads.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/RT_Generic_Sequencer.dir/threads.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/fedi/real_time_embedded_systems_course/week_1/RT_Generic_Sequencers /threads.c" -o CMakeFiles/RT_Generic_Sequencer.dir/threads.c.s
+
+CMakeFiles/RT_Generic_Sequencer.dir/threads.c.o.requires:
+
+.PHONY : CMakeFiles/RT_Generic_Sequencer.dir/threads.c.o.requires
+
+CMakeFiles/RT_Generic_Sequencer.dir/threads.c.o.provides: CMakeFiles/RT_Generic_Sequencer.dir/threads.c.o.requires
+	$(MAKE) -f CMakeFiles/RT_Generic_Sequencer.dir/build.make CMakeFiles/RT_Generic_Sequencer.dir/threads.c.o.provides.build
+.PHONY : CMakeFiles/RT_Generic_Sequencer.dir/threads.c.o.provides
+
+CMakeFiles/RT_Generic_Sequencer.dir/threads.c.o.provides.build: CMakeFiles/RT_Generic_Sequencer.dir/threads.c.o
+
+
+CMakeFiles/RT_Generic_Sequencer.dir/sequencer.c.o: CMakeFiles/RT_Generic_Sequencer.dir/flags.make
+CMakeFiles/RT_Generic_Sequencer.dir/sequencer.c.o: ../sequencer.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/fedi/real_time_embedded_systems_course/week_1/RT_Generic_Sequencers /cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/RT_Generic_Sequencer.dir/sequencer.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/RT_Generic_Sequencer.dir/sequencer.c.o   -c "/home/fedi/real_time_embedded_systems_course/week_1/RT_Generic_Sequencers /sequencer.c"
+
+CMakeFiles/RT_Generic_Sequencer.dir/sequencer.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/RT_Generic_Sequencer.dir/sequencer.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/home/fedi/real_time_embedded_systems_course/week_1/RT_Generic_Sequencers /sequencer.c" > CMakeFiles/RT_Generic_Sequencer.dir/sequencer.c.i
+
+CMakeFiles/RT_Generic_Sequencer.dir/sequencer.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/RT_Generic_Sequencer.dir/sequencer.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/home/fedi/real_time_embedded_systems_course/week_1/RT_Generic_Sequencers /sequencer.c" -o CMakeFiles/RT_Generic_Sequencer.dir/sequencer.c.s
+
+CMakeFiles/RT_Generic_Sequencer.dir/sequencer.c.o.requires:
+
+.PHONY : CMakeFiles/RT_Generic_Sequencer.dir/sequencer.c.o.requires
+
+CMakeFiles/RT_Generic_Sequencer.dir/sequencer.c.o.provides: CMakeFiles/RT_Generic_Sequencer.dir/sequencer.c.o.requires
+	$(MAKE) -f CMakeFiles/RT_Generic_Sequencer.dir/build.make CMakeFiles/RT_Generic_Sequencer.dir/sequencer.c.o.provides.build
+.PHONY : CMakeFiles/RT_Generic_Sequencer.dir/sequencer.c.o.provides
+
+CMakeFiles/RT_Generic_Sequencer.dir/sequencer.c.o.provides.build: CMakeFiles/RT_Generic_Sequencer.dir/sequencer.c.o
+
+
 # Object files for target RT_Generic_Sequencer
 RT_Generic_Sequencer_OBJECTS = \
-"CMakeFiles/RT_Generic_Sequencer.dir/main.c.o"
+"CMakeFiles/RT_Generic_Sequencer.dir/main.c.o" \
+"CMakeFiles/RT_Generic_Sequencer.dir/threads.c.o" \
+"CMakeFiles/RT_Generic_Sequencer.dir/sequencer.c.o"
 
 # External object files for target RT_Generic_Sequencer
 RT_Generic_Sequencer_EXTERNAL_OBJECTS =
 
 RT_Generic_Sequencer: CMakeFiles/RT_Generic_Sequencer.dir/main.c.o
+RT_Generic_Sequencer: CMakeFiles/RT_Generic_Sequencer.dir/threads.c.o
+RT_Generic_Sequencer: CMakeFiles/RT_Generic_Sequencer.dir/sequencer.c.o
 RT_Generic_Sequencer: CMakeFiles/RT_Generic_Sequencer.dir/build.make
 RT_Generic_Sequencer: CMakeFiles/RT_Generic_Sequencer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/fedi/real_time_embedded_systems_course/week_1/RT_Generic_Sequencers /cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable RT_Generic_Sequencer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/fedi/real_time_embedded_systems_course/week_1/RT_Generic_Sequencers /cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable RT_Generic_Sequencer"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/RT_Generic_Sequencer.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -100,6 +152,8 @@ CMakeFiles/RT_Generic_Sequencer.dir/build: RT_Generic_Sequencer
 .PHONY : CMakeFiles/RT_Generic_Sequencer.dir/build
 
 CMakeFiles/RT_Generic_Sequencer.dir/requires: CMakeFiles/RT_Generic_Sequencer.dir/main.c.o.requires
+CMakeFiles/RT_Generic_Sequencer.dir/requires: CMakeFiles/RT_Generic_Sequencer.dir/threads.c.o.requires
+CMakeFiles/RT_Generic_Sequencer.dir/requires: CMakeFiles/RT_Generic_Sequencer.dir/sequencer.c.o.requires
 
 .PHONY : CMakeFiles/RT_Generic_Sequencer.dir/requires
 

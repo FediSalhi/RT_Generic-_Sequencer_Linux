@@ -81,6 +81,21 @@
 		<Unit filename="/home/fedi/real_time_embedded_systems_course/week_1/RT_Generic_Sequencers /main.c">
 			<Option target="RT_Generic_Sequencer"/>
 		</Unit>
+		<Unit filename="/home/fedi/real_time_embedded_systems_course/week_1/RT_Generic_Sequencers /sequencer.c">
+			<Option target="RT_Generic_Sequencer"/>
+		</Unit>
+		<Unit filename="/home/fedi/real_time_embedded_systems_course/week_1/RT_Generic_Sequencers /sequencer.h">
+			<Option target="RT_Generic_Sequencer"/>
+		</Unit>
+		<Unit filename="/home/fedi/real_time_embedded_systems_course/week_1/RT_Generic_Sequencers /threads.c">
+			<Option target="RT_Generic_Sequencer"/>
+		</Unit>
+		<Unit filename="/home/fedi/real_time_embedded_systems_course/week_1/RT_Generic_Sequencers /threads.h">
+			<Option target="RT_Generic_Sequencer"/>
+		</Unit>
+		<Unit filename="/home/fedi/real_time_embedded_systems_course/week_1/RT_Generic_Sequencers /types.h">
+			<Option target="RT_Generic_Sequencer"/>
+		</Unit>
 		<Unit filename="/home/fedi/real_time_embedded_systems_course/week_1/RT_Generic_Sequencers /CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

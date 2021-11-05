@@ -150,6 +150,60 @@ main.c.s:
 	$(MAKE) -f CMakeFiles/RT_Generic_Sequencer.dir/build.make CMakeFiles/RT_Generic_Sequencer.dir/main.c.s
 .PHONY : main.c.s
 
+sequencer.o: sequencer.c.o
+
+.PHONY : sequencer.o
+
+# target to build an object file
+sequencer.c.o:
+	$(MAKE) -f CMakeFiles/RT_Generic_Sequencer.dir/build.make CMakeFiles/RT_Generic_Sequencer.dir/sequencer.c.o
+.PHONY : sequencer.c.o
+
+sequencer.i: sequencer.c.i
+
+.PHONY : sequencer.i
+
+# target to preprocess a source file
+sequencer.c.i:
+	$(MAKE) -f CMakeFiles/RT_Generic_Sequencer.dir/build.make CMakeFiles/RT_Generic_Sequencer.dir/sequencer.c.i
+.PHONY : sequencer.c.i
+
+sequencer.s: sequencer.c.s
+
+.PHONY : sequencer.s
+
+# target to generate assembly for a file
+sequencer.c.s:
+	$(MAKE) -f CMakeFiles/RT_Generic_Sequencer.dir/build.make CMakeFiles/RT_Generic_Sequencer.dir/sequencer.c.s
+.PHONY : sequencer.c.s
+
+threads.o: threads.c.o
+
+.PHONY : threads.o
+
+# target to build an object file
+threads.c.o:
+	$(MAKE) -f CMakeFiles/RT_Generic_Sequencer.dir/build.make CMakeFiles/RT_Generic_Sequencer.dir/threads.c.o
+.PHONY : threads.c.o
+
+threads.i: threads.c.i
+
+.PHONY : threads.i
+
+# target to preprocess a source file
+threads.c.i:
+	$(MAKE) -f CMakeFiles/RT_Generic_Sequencer.dir/build.make CMakeFiles/RT_Generic_Sequencer.dir/threads.c.i
+.PHONY : threads.c.i
+
+threads.s: threads.c.s
+
+.PHONY : threads.s
+
+# target to generate assembly for a file
+threads.c.s:
+	$(MAKE) -f CMakeFiles/RT_Generic_Sequencer.dir/build.make CMakeFiles/RT_Generic_Sequencer.dir/threads.c.s
+.PHONY : threads.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -162,6 +216,12 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... sequencer.o"
+	@echo "... sequencer.i"
+	@echo "... sequencer.s"
+	@echo "... threads.o"
+	@echo "... threads.i"
+	@echo "... threads.s"
 .PHONY : help
 
 

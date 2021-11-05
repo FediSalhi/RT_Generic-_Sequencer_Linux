@@ -3,4 +3,4 @@ project(RT_Generic_Sequencer C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(RT_Generic_Sequencer main.c)
+add_executable(RT_Generic_Sequencer main.c threads.c threads.h types.h sequencer.c sequencer.h)
