@@ -24,4 +24,7 @@ typedef unsigned long int UINT64;
 typedef float FLOAT32;
 typedef double FLOAT64;
 
+#define TRUE    1
+#define FALSE   0
+
 #endif //RT_GENERIC_SEQUENCER_TYPES_H

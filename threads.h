@@ -18,6 +18,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "types.h"
+#include "sequencer.h"
 
 
 #define SEMAPHORE_IS_SHARED_BETWEEN_THREADS     0
@@ -27,6 +28,8 @@
 
 #define RETURNED_CODE_SUCCESS   0
 #define RETURNED_CODE_ERROR     -1
+
+
 
 #define RT_MAX_PRIORITY     sched_get_priority_max(SCHED_FIFO)
 #define RT_MIN_PRIORITY     sched_get_priority_min(SCHED_FIFO)
@@ -43,13 +46,12 @@ typedef enum RT_THREAD_CREATION_STATUS_E
 
 }RT_THREAD_CREATION_STATUS_E;
 
-typedef enum jetson_nano_thread_indexes_e
-{
-    JETSON_CPU_CORE_0 = 0,
-    JETSON_CPU_CORE_1 = 1,
-    JETSON_CPU_CORE_2 = 2,
-    JETSON_CPU_CORE_3 = 3,
-};
+
+extern sem_t semaphore_service_1_t;
+extern sem_t semaphore_service_2_t;
+extern sem_t semaphore_service_3_t;
+extern sem_t semaphore_sequencer_t;
+
 
 /*
  * name     : initializing_semaphores
@@ -75,12 +77,22 @@ void initializing_semaphores(UINT8 number_of_threads, ...);
  *  ...                 : pointers to sem_t, semaphores to initialize
  * return   : thread creation status
  */
-RT_THREAD_CREATION_STATUS_E create_real_time_thread(pthread_t thread_t,
-                                                    UINT8 priority_u8,
+RT_THREAD_CREATION_STATUS_E create_real_time_thread(UINT8 priority_u8,
                                                     UINT8 cpu_index_u8,
-                                                    pthread_attr_t* p_pthread_attr_t,
                                                     void*(*start_routine)(void*),
                                                     void* args);
+
+/*TODO: add doc*/
+FLOAT32 compute_delta_time_ms(struct timespec* p_start_time_t, struct timespec* p_end_time_t);
+
+/*TODO: add doc*/
+_Noreturn void* service_1(void* p_service_params);
+
+/*TODO: add doc*/
+_Noreturn void* service_2(void* p_service_params);
+
+/*TODO: add doc*/
+_Noreturn void* service_3(void* p_service_params);
 
 
 #endif //RT_GENERIC_SEQUENCER_THREADS_H
