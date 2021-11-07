@@ -34,18 +34,10 @@
 
 #define MS_PER_SECOND   1000
 
-typedef struct sequencer_param_t
-{
-    sem_t semaphore_thread_1;
-    sem_t semaphore_thread_2;
-    sem_t semaphore_thread_3;
-}sequencer_param_t;
-
 
 extern sem_t semaphore_service_1_t;
 extern sem_t semaphore_service_2_t;
 extern sem_t semaphore_service_3_t;
-extern sem_t semaphore_sequencer_t;
 
 
 _Noreturn void* sequencer(void* thread_params);

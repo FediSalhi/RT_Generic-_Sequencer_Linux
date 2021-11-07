@@ -2,6 +2,7 @@
  * Author               : Fedi Salhi <fadi.salhi@outlook.fr>
  * Creation Date        : 05/11/2021
  * Description          : threads.c file. Contains the threads implementation
+ *                                        and some other useful functions
  *
  * Revision No          : R000
  * Revision Date        :
@@ -10,7 +11,6 @@
 
 #define _GNU_SOURCE
 #include "threads.h"
-
 
 
 FLOAT32 compute_delta_time_ms(struct timespec* p_start_time_t, struct timespec* p_end_time_t)
@@ -121,9 +121,8 @@ RT_THREAD_CREATION_STATUS_E create_real_time_thread(UINT8 priority_u8,
 
 /************************ Services ***********************/
 
-_Noreturn void* service_1(void* p_service_params)
+void* service_1(void* p_service_params)
 {
-
     struct timespec start_time_t = {0,0};
     struct timespec end_time_t = {0,0};
     FLOAT32 delta_time_ms_f32 = 0;
@@ -132,6 +131,12 @@ _Noreturn void* service_1(void* p_service_params)
     while (1)
     {
         //!< run the service forever
+        rc = clock_gettime(CLOCK_REALTIME, &start_time_t);
+        if (rc < 0)
+        {
+            perror("clock_gettime");
+            exit(-1);
+        }
         //!< the service should wait for its turn to be given by the sequencer
         rc = sem_wait(&semaphore_service_1_t);
         if (rc < 0)
@@ -140,12 +145,6 @@ _Noreturn void* service_1(void* p_service_params)
             exit(-1);
         }
         //!< the semaphore is taken, start your routine
-        rc = clock_gettime(CLOCK_REALTIME, &start_time_t);
-        if (rc < 0)
-        {
-            perror("clock_gettime");
-            exit(-1);
-        }
 
         UINT32 index = 0;
         for (index=0; index<1000; index++)
@@ -165,10 +164,12 @@ _Noreturn void* service_1(void* p_service_params)
                (FLOAT32)start_time_t.tv_sec*MS_PER_SECOND + (FLOAT32)start_time_t.tv_nsec/MS_PER_SECOND,
                (FLOAT32)end_time_t.tv_sec*MS_PER_SECOND + (FLOAT32)end_time_t.tv_nsec/MS_PER_SECOND,
                delta_time_ms_f32);
+        show_thread_attributes();
     }
+    pthread_exit((void*)0);
 }
 
-_Noreturn void* service_2(void* p_service_params)
+void* service_2(void* p_service_params)
 {
 
     struct timespec start_time_t = {0,0};
@@ -180,6 +181,12 @@ _Noreturn void* service_2(void* p_service_params)
     {
         //!< run the service forever
         //!< the service should wait for its turn to be given by the sequencer
+        rc = clock_gettime(CLOCK_REALTIME, &start_time_t);
+        if (rc < 0)
+        {
+            perror("clock_gettime");
+            exit(-1);
+        }
         rc = sem_wait(&semaphore_service_2_t);
         if (rc < 0)
         {
@@ -187,12 +194,6 @@ _Noreturn void* service_2(void* p_service_params)
             exit(-1);
         }
         //!< the semaphore is taken, start your routine
-        rc = clock_gettime(CLOCK_REALTIME, &start_time_t);
-        if (rc < 0)
-        {
-            perror("clock_gettime");
-            exit(-1);
-        }
 
         UINT32 index = 0;
         for (index=0; index<1000; index++)
@@ -212,10 +213,12 @@ _Noreturn void* service_2(void* p_service_params)
                (FLOAT32)start_time_t.tv_sec*MS_PER_SECOND + (FLOAT32)start_time_t.tv_nsec/MS_PER_SECOND,
                (FLOAT32)end_time_t.tv_sec*MS_PER_SECOND + (FLOAT32)end_time_t.tv_nsec/MS_PER_SECOND,
                delta_time_ms_f32);
+        //show_thread_attributes();
     }
+    pthread_exit((void*)0);
 }
 
-_Noreturn void* service_3(void* p_service_params)
+void* service_3(void* p_service_params)
 {
 
     struct timespec start_time_t = {0,0};
@@ -227,6 +230,12 @@ _Noreturn void* service_3(void* p_service_params)
     {
         //!< run the service forever
         //!< the service should wait for its turn to be given by the sequencer
+        rc = clock_gettime(CLOCK_REALTIME, &start_time_t);
+        if (rc < 0)
+        {
+            perror("clock_gettime");
+            exit(-1);
+        }
         rc = sem_wait(&semaphore_service_3_t);
         if (rc < 0)
         {
@@ -234,12 +243,7 @@ _Noreturn void* service_3(void* p_service_params)
             exit(-1);
         }
         //!< the semaphore is taken, start your routine
-        rc = clock_gettime(CLOCK_REALTIME, &start_time_t);
-        if (rc < 0)
-        {
-            perror("clock_gettime");
-            exit(-1);
-        }
+
 
         UINT32 index = 0;
         for (index=0; index<1000; index++)
@@ -260,6 +264,39 @@ _Noreturn void* service_3(void* p_service_params)
                (FLOAT32)end_time_t.tv_sec*MS_PER_SECOND + (FLOAT32)end_time_t.tv_nsec/MS_PER_SECOND,
                delta_time_ms_f32);
     }
+    pthread_exit((void*)0);
 }
 
+void show_thread_attributes()
+{
+    //TODO: why scheduling priority = 1?
+    pthread_attr_t attr;
+    struct sched_param param;
+    int rc = 0;
+    int policy;
 
+    pthread_attr_init(&attr);
+
+    rc = pthread_getattr_np(pthread_self(), &attr);
+    if (rc)
+    {
+        perror("pthread_getattr_np");
+        exit(-1);
+    }
+    rc = pthread_attr_getschedpolicy(&attr, &policy);
+    if (rc)
+    {
+        perror("pthread_attr_getschedpolicy");
+        exit(-1);
+    }
+    rc = pthread_attr_getschedparam(pthread_self(), &param);
+    if (rc)
+    {
+        perror("pthread_attr_getschedpolicy");
+        exit(-1);
+    }
+    if (policy == SCHED_FIFO)
+    {
+        printf("Policy = SCHED_FIFO | Priority = %d\n", param.sched_priority);
+    }
+}

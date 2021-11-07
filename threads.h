@@ -53,6 +53,19 @@ extern sem_t semaphore_service_3_t;
 extern sem_t semaphore_sequencer_t;
 
 
+
+/*
+ * name     : compute_delta_time_ms
+ * brief    : computes the time in ms between two moments described by two
+ *            'struct timespec' data structures.
+ * args     :
+ *  p_start_time_t   : 1st moment
+ *  p_end_time_t     : 2nd moment
+ *
+ * return   : delta time in ms
+ */
+FLOAT32 compute_delta_time_ms(struct timespec* p_start_time_t, struct timespec* p_end_time_t);
+
 /*
  * name     : initializing_semaphores
  * brief    : initializes the semaphores used by the sequencer
@@ -82,17 +95,44 @@ RT_THREAD_CREATION_STATUS_E create_real_time_thread(UINT8 priority_u8,
                                                     void*(*start_routine)(void*),
                                                     void* args);
 
-/*TODO: add doc*/
-FLOAT32 compute_delta_time_ms(struct timespec* p_start_time_t, struct timespec* p_end_time_t);
 
-/*TODO: add doc*/
-_Noreturn void* service_1(void* p_service_params);
+/*
+ * name     : service_1
+ * brief    : example service
+ * args     :
+ *  p_service_params   : service params
+ *
+ * return   : void
+ */
+void* service_1(void* p_service_params);
 
-/*TODO: add doc*/
-_Noreturn void* service_2(void* p_service_params);
+/*
+ * name     : service_2
+ * brief    : example service
+ * args     :
+ *  p_service_params   : service params
+ *
+ * return   : void
+ */
+void* service_2(void* p_service_params);
 
-/*TODO: add doc*/
-_Noreturn void* service_3(void* p_service_params);
+/*
+ * name     : service_3
+ * brief    : example service
+ * args     :
+ *  p_service_params   : service params
+ *
+ * return   : void
+ */
+void* service_3(void* p_service_params);
 
-
+/*
+ * name     : show_thread_attributes
+ * brief    : prints the scheduling policy
+ *            and priority to the std output
+ * args     : void
+ *
+ * return   : void
+ */
+void show_thread_attributes();
 #endif //RT_GENERIC_SEQUENCER_THREADS_H

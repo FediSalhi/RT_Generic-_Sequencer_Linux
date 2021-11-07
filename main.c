@@ -1,7 +1,7 @@
 /************************************************************************************
  * Author               : Fedi Salhi <fadi.salhi@outlook.fr>
  * Creation Date        : 05/11/2021
- * Description          : test.c file, used for testing the sequencer
+ * Description          : main.c file, used for testing the sequencer
  *
  * Revision No          : R000
  * Revision Date        :
@@ -28,17 +28,12 @@ int main() {
 
 
 
-
-
     //!< init semaphores
     initializing_semaphores(NUMBER_OF_TEST_THREADS,
                             &semaphore_service_1_t,
                             &semaphore_service_2_t,
                             &semaphore_service_3_t);
 
-    sequencer_param_t sequencer_param_t = {semaphore_service_1_t,
-                                           semaphore_service_2_t,
-                                           semaphore_service_3_t};
 
 
     create_real_time_thread(
