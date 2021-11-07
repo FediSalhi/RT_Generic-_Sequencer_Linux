@@ -24,6 +24,9 @@ sem_t semaphore_sequencer_t = {0};
 //TODO: replace all printf's with syslog --> better overhead
 //printf has a high function call overhead
 
+//TODO: you can access TSC (timer stamp counter) using assembly code to access the exact time (us accuracy)
+//it's better than clock_gettime() wich has an accuracy of around 10ms
+
 int main() {
 
     //!< init semaphores
