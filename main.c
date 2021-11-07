@@ -21,12 +21,10 @@ sem_t semaphore_service_2_t = {0};
 sem_t semaphore_service_3_t = {0};
 sem_t semaphore_sequencer_t = {0};
 
-
+//TODO: replace all printf's with syslog --> better overhead
+//printf has a high function call overhead
 
 int main() {
-
-
-
 
     //!< init semaphores
     initializing_semaphores(NUMBER_OF_TEST_THREADS,
@@ -38,7 +36,7 @@ int main() {
 
     create_real_time_thread(
                             95,
-                            0,
+                            3,
                             sequencer,
                             NULL);
 
@@ -59,13 +57,10 @@ int main() {
                             0,
                             service_3,
                             NULL);
-
     while (1)
     {
         usleep(20);
     }
-
-
     printf("Hello, World!\n");
     return 0;
 }

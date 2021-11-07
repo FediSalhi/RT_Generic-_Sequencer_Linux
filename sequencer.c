@@ -20,7 +20,6 @@ _Noreturn void* sequencer(void* thread_params)
     int number_of_interruption_by_a_signal_handler = 0;
     FLOAT32 remain_time_second = 0.0;
 
-
     //!< set the base interval
     requested_time_t.tv_sec = 0;
     requested_time_t.tv_nsec = SEQUENCER_BASE_PERIOD_MS * NANOSECOND_PER_MILLISECOND;

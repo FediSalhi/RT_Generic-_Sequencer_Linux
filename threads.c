@@ -138,6 +138,7 @@ void* service_1(void* p_service_params)
             exit(-1);
         }
         //!< the service should wait for its turn to be given by the sequencer
+        //!< this can be a service request from a sequencer as its done here, or a signal handler or ISR (in kernel space)
         rc = sem_wait(&semaphore_service_1_t);
         if (rc < 0)
         {
