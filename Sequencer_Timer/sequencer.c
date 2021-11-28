@@ -73,5 +73,4 @@ void sequencer_10ms_signal_handler(int id)
         //!< 1HZ loop
         sem_post(&semaphore_service_3_t);
     }
-
 }

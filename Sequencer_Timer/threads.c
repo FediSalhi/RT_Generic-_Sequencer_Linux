@@ -270,7 +270,6 @@ void* service_3(void* p_service_params)
 
 void show_thread_attributes()
 {
-    //TODO: why scheduling priority = 1?
     pthread_attr_t attr;
     struct sched_param param;
     int rc = 0;
@@ -290,7 +289,7 @@ void show_thread_attributes()
         perror("pthread_attr_getschedpolicy");
         exit(-1);
     }
-    rc = pthread_attr_getschedparam(pthread_self(), &param);
+    rc = pthread_attr_getschedparam(&attr, &param);
     if (rc)
     {
         perror("pthread_attr_getschedpolicy");
